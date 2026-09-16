@@ -16,14 +16,19 @@ public class Main {
         Set<LazyString> slices = new HashSet<>(); // множество всех подстрок длины size
         LazyString prev = null; // переменная для сохранения предыдущей подстроки
         for (int i = 0; i <= source.length() - size; i++) { // перебор всех мест старта подстроки
-            //todo тут сам правил, было: LazyString slice;
-            LazyString slice = null; // вырезание подстроки
+            LazyString slice; // вырезание подстроки
             if (prev == null) {
                 // первую подстроку создаём конструктором за линейную асимптотику
                 // ВАШ КОД
+
+                slice = new LazyString(source, 0, size);
+
             } else {
                 // все остальные через сдвиг вправо от предыдущей подстроки, за O(1)
                 // ВАШ КОД
+
+                slice = prev.shiftRight();
+
             }
             if (slices.contains(slice)) { // проверка на наличие повтора этой подстроки
                 return true; // если уже встречали, значит повторы нет
@@ -32,6 +37,7 @@ public class Main {
             }
             prev = slice; // не забываем обновить переменную для предыдущей подстроки для следующей итерации цикла
         }
+        //System.out.println(slices);
         return false; // если бы нашли, то вышли бы по return true, а значит повторов нет
     }
 

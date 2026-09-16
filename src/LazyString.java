@@ -16,6 +16,10 @@ public class LazyString {
         // просто сложите все коды символов нашей подстроки
         // и сохраните в поле hash.
         // из-за этого, создание LazyString через конструктор будет линейным
+
+        for (int i = start; i < end; i++) {
+            this.hash += source.charAt(i);
+        }
     }
 
     public LazyString shiftRight() {
@@ -31,6 +35,8 @@ public class LazyString {
         // Заметьте, что достаточно просто вычесть код того
         // символа, что исчез и прибавить код того символа, что
         // появился
+
+        shifted.hash = hash - source.charAt(start) + source.charAt(end);
 
         return shifted;
     }
@@ -69,4 +75,8 @@ public class LazyString {
         return this.equals(that);
     }
 
+    @Override //смотрел что получается
+    public String toString() {
+        return source.substring(start, end);
+    }
 }
