@@ -77,6 +77,6 @@ public class LazyString {
 
     @Override //смотрел что получается
     public String toString() {
-        return source.substring(start, end);
+        return hash + " " + source.substring(start, end);
     }
 }
