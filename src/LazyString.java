@@ -36,7 +36,7 @@ public class LazyString {
         // символа, что исчез и прибавить код того символа, что
         // появился
 
-        this.hash = hash - source.charAt(start) + source.charAt(end);
+        shifted.hash = hash - source.charAt(start) + source.charAt(end);
 
         return shifted;
     }
