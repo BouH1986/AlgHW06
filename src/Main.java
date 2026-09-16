@@ -31,14 +31,14 @@ public class Main {
 
             }
             if (slices.contains(slice)) { // проверка на наличие повтора этой подстроки
+//                System.out.println(slices);
                 return true; // если уже встречали, значит повторы нет
             } else {
                 slices.add(slice);  // иначе запоминаем подстроку и перебираем дальше
             }
             prev = slice; // не забываем обновить переменную для предыдущей подстроки для следующей итерации цикла
         }
-        //System.out.println(slices);
+//        System.out.println(slices);
         return false; // если бы нашли, то вышли бы по return true, а значит повторов нет
     }
-
 }
